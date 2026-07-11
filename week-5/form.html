@@ -1,0 +1,63 @@
+<html>
+    <body bgcolor="pink" align="center">
+        <h2>JOB REGISTRATION FORM</h2>
+        <head>
+        <form>
+        Name:<input type="text" id="N" placeholder="Enter your name"><br>
+        Email:<input type="email" id="E" placeholder="Enter email"><br>
+        Mobile Number:<input type="number" id="M" placeholder="Enter contact num"><br>
+        <input type="button" value="Submit" onclick="return validate()">
+        <p>G.Sidharth</p>
+        <p>24881A1227</p>
+        
+        </form>
+        <script>
+            function validate(){
+                var un=document.getElementById("N")
+                var mail=document.getElementById("E")
+                var num=document.getElementById("M")  
+                var uname=un.value;
+                var email=mail.value;
+                var mnum=num.value;
+                var unre=/^[a-zA-Z]+[0-9a-a-zA-Z._]*$/;
+                var mailre=/^[a-zA-Z]+([\._]?\w+)*@\w+([\._]?\w+)+(\.\w{2,3})+$/;
+                var numre=/^[6-9][0-9]{9}$/;
+                if (unre.test(uname))
+                {
+                    if(mailre.test(email))
+                {
+                    if(numre.test(mnum))
+                {
+                    alert("Registered successfully")
+                    return true;
+                }
+                else
+                {
+                    return error(num);
+                }
+            }
+                else
+                {
+                    return error(mail);
+                }
+                
+            }
+                else{
+                    return error(un);
+                }
+            }
+        
+        function error(ele)
+        {
+            alert("Invalid")
+            ele.style.border="3px solid red";
+            ele.value="";
+            ele.placeholder="Invalid";
+            ele.focus();
+            return false;
+        }
+        </script>
+        </head>
+    </body>
+</html>
+
